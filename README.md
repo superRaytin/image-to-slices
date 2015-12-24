@@ -24,7 +24,7 @@ var imageToSlices = require('image-to-slices');
 
 var lineXArray = [100, 200];
 var lineYArray = [100, 200];
-var imagePath = '/path/to/image.jpg'; // width:300, height: 300
+var imagePath = '/path/to/image.jpg'; // width:300, height:300
 
 imageToSlices(imagePath, lineXArray, lineYArray, {
     saveToDir: '/path/to/'
