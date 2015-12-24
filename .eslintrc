@@ -31,7 +31,7 @@
     "no-new-object": 2,
     "no-irregular-whitespace": 2,
     "quotes": [2, "single"],
-    "strict": [2, "global"],
+    "strict": [1, "global"],
     "space-before-blocks": 2,
     "space-after-keywords": 2,
     "spaced-comment": 2,
