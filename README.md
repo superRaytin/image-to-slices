@@ -14,7 +14,7 @@
 # Installation
 
 ```
-npm install slices
+npm install image-to-slices
 ```
 
 # Quick Start
