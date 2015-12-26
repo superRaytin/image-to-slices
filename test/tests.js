@@ -64,16 +64,17 @@ describe('image-to-slices', function() {
     });
   });
 
-  it('throws when save directory not specified', function(done) {
+  it('throws when both save directory and saveToDataUrl does not be specified', function(done) {
     try {
       ImageToSlices(pngImagePath, lineXArray, lineYArray, {
-        saveToDir: null
+        saveToDir: null,
+        saveToDataUrl: false
       }, function() {
         true.should.equal(false);
         done();
       });
     } catch(e) {
-      e.message.should.equal('Save directory must be specified');
+      e.message.should.equal('Either saveToDir or saveToDataUrl must be specified');
       done();
     }
   });
@@ -120,11 +121,6 @@ function deleteAllFile(dir) {
       }
     });
   });
-}
-function deleteAllFile2(dir, num) {
-  for (var i = 1; i <= num; i++) {
-    deleteFile(dir + 'section-' + i + '.png');
-  }
 }
 
 function deleteFile(path) {
