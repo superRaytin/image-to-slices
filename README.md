@@ -17,7 +17,7 @@
 npm install image-to-slices
 ```
 
-If you want to use it on the server-side Node.js, you'll need previously install [node-canvas](https://github.com/Automattic/node-canvas):
+Using on the server-side Node.js, you'll need previously install [Cairo](http://cairographics.org/) which is depended by (https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
 
 ```
 npm install canvas
@@ -35,7 +35,7 @@ var source = '/path/to/image.jpg'; // width:300, height:300
 imageToSlices(source, lineXArray, lineYArray, {
     saveToDir: '/path/to/'
 }, function() {
-    console.log('The source image has been sliced into 9 sections!');
+    console.log('the source image has been sliced into 9 sections!');
 });
 ```
 
@@ -48,6 +48,21 @@ imageToSlices(source, lineXArray, lineYArray, {
 - **lineYArray:** reference lines of the Y axis
 - **options:** slice with some optional parameters, see [options](#options) for detail.
 - **callback:** a function to be executed when slicing is complete.
+
+### imageToSlices.configure(options)
+
+Configure properties for global, properties changed by the `imageToSlices.configure` method will take effect for every instance created after the change.
+
+```js
+var imageToSlices = require('image-to-slices');
+imageToSlices.configure({
+    clipperOptions: {
+        canvas: require('canvas')
+    }
+});
+```
+
+See [Options](#options) for available properties.
 
 ## Options
 
@@ -68,13 +83,13 @@ See [Slices#middleBoundaryMode](https://github.com/superRaytin/slices#middleboun
 
 ### clipperOptions
 
-Configure properties for [image-clipper](https://github.com/superRaytin/image-clipper).
+Configuration properties for the [image-clipper](https://github.com/superRaytin/image-clipper).
 
-See [image-clipper#configure-options](https://github.com/superRaytin/image-clipper#clipperconfigureoptions) for detail.
+See [image-clipper#configure-options](https://github.com/superRaytin/image-clipper#clipperconfigureoptions) for available properties.
 
 ### saveToDataUrl
 
-You should either `saveToDir: true` or `saveToDataUrl: true`, default is false.
+You should use either `saveToDir: true` or `saveToDataUrl: true`, default is false.
 
 If set to true, then it will doesn't save the image slices to file but rather return data url of the slices.
 
