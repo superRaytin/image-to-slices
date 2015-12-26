@@ -4,23 +4,34 @@
 [![Build Status](https://travis-ci.org/superRaytin/image-to-slices.svg?branch=master)](https://travis-ci.org/superRaytin/image-to-slices)
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
+[![Bower version][bower-image]][bower-url]
 
 [![image-to-slices](https://nodei.co/npm/image-to-slices.png)](https://npmjs.org/package/image-to-slices)
 
 [npm-url]: https://npmjs.org/package/image-to-slices
 [downloads-image]: http://img.shields.io/npm/dm/image-to-slices.svg
 [npm-image]: http://img.shields.io/npm/v/image-to-slices.svg
+[bower-url]:http://badge.fury.io/bo/image-to-slices
+[bower-image]: https://badge.fury.io/bo/image-to-slices.svg
 
 # Installation
+
+### Node.js
 
 ```
 npm install image-to-slices
 ```
 
-Using on the server-side Node.js, you'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
+you'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
 
 ```
 npm install canvas
+```
+
+### Bower
+
+```
+bower install image-to-slices
 ```
 
 # Quick Start
@@ -109,7 +120,7 @@ See [image-clipper#configure-options](https://github.com/superRaytin/image-clipp
 
 You should use either `saveToDir: true` or `saveToDataUrl: true`, default is false.
 
-If set to true, then it will doesn't save the image slices to file but rather return data URI of the slices, and callback will be passed the result data URI.
+If set to true, then it will doesn't save the image slices as file but rather return data URI of the slices, and callback will be passed the result data URI.
 
 Below is an example:
 
