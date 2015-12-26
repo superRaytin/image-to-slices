@@ -1,5 +1,5 @@
 # image-to-slices
-> Node.js module for converting image into slices by the given reference lines. Backed by [Slices](https://github.com/superRaytin/slices) and [image-clipper](https://github.com/superRaytin/image-clipper).
+> Node.js module for converting image into slices with the given reference lines. Backed by [Slices](https://github.com/superRaytin/slices) and [image-clipper](https://github.com/superRaytin/image-clipper).
 
 [![Build Status](https://travis-ci.org/superRaytin/image-to-slices.svg?branch=master)](https://travis-ci.org/superRaytin/image-to-slices)
 [![NPM version][npm-image]][npm-url]
@@ -38,6 +38,24 @@ imageToSlices(source, lineXArray, lineYArray, {
     console.log('the source image has been sliced into 9 sections!');
 });
 ```
+
+## Client-side (browser)
+
+Simply download the latest minified version from the `dist/` folder. All APIs are available in a global object called `imageToSlices`.
+
+```html
+<script src="./dist/image-to-slices.js"></script>
+```
+
+```js
+imageToSlices(source, lineXArray, lineYArray, {
+    saveToDataUrl: true
+}, function(dataUrlList) {
+    console.log('sliced', dataUrlList);
+});
+```
+
+You can also use `image-to-slices` via AMD or CMD.
 
 # API
 
@@ -91,24 +109,86 @@ See [image-clipper#configure-options](https://github.com/superRaytin/image-clipp
 
 You should use either `saveToDir: true` or `saveToDataUrl: true`, default is false.
 
-If set to true, then it will doesn't save the image slices to file but rather return data url of the slices.
+If set to true, then it will doesn't save the image slices to file but rather return data URI of the slices, and callback will be passed the result data URI.
+
+Below is an example:
 
 ```js
-ImageToSlices('path/to/image.jpg', [100, 300], [100], {
+ImageToSlices('path/to/image.jpg', [100], [100], {
   saveToDataUrl: true
-}, function(dataUrlArray) {
-  console.log('sliced!', dataUrlArray);
+}, function(dataUrlList) {
+  console.log('sliced!', dataUrlList);
 });
 ```
 
-The `dataUrlArray` returned will be like below:
+The `dataUrlList` returned will be like below:
 
 ```js
 [
-    '1': 'data:image/jpeg;base64,....',
-    '2': 'data:image/jpeg;base64,....',
+    { width: 100, height: 100, x: 0, y: 0, dataURI: 'data:image/jpeg;base64,....' },
+    { width: 400, height: 100, x: 100, y: 0, dataURI: 'data:image/jpeg;base64,....' },
+    { width: 100, height: 400, x: 0, y: 100, dataURI: 'data:image/jpeg;base64,....' },
+    { width: 400, height: 400, x: 100, y: 100, dataURI: 'data:image/jpeg;base64,....' }
+]
+```
+
+Below is another example which middleBoundaryMode is set to true:
+
+```js
+ImageToSlices('path/to/image.jpg', [100, 300], [100, 200, 300], {
+  saveToDataUrl: true,
+  middleBoundaryMode: true
+}, function(dataUrlList) {
+  console.log('sliced!', dataUrlList);
+});
+```
+
+And the `dataUrlList` returned will be like below:
+
+```js
+[
+    {
+        "width": 500,
+        "height": 100,
+        "x": 0,
+        "y": 0,
+        dataURI: 'data:image/jpeg;base64,....',
+        "children": [
+            {
+                "width": 100,
+                "height": 100,
+                "x": 100,
+                "y": 0,
+                "left": 0,
+                "top": 0,
+                "parentBlockIndex": 0,
+                "index": 0,
+                dataURI: 'data:image/jpeg;base64,....',
+            },
+            {
+                "width": 100,
+                "height": 100,
+                "x": 200,
+                "y": 0,
+                "left": 100,
+                "top": 0,
+                "parentBlockIndex": 0,
+                "index": 1,
+                dataURI: 'data:image/jpeg;base64,....',
+            }
+        ],
+        "boundary": {
+            "leftTop": {
+                "x": 100,
+                "y": 0
+            },
+            "rightBottom": {
+                "x": 300,
+                "y": 100
+            }
+        }
+    },
     ...
-    '6': 'data:image/jpeg;base64,....'
 ]
 ```
 
