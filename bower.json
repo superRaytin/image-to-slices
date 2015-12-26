@@ -1,0 +1,17 @@
+{
+    "name": "image-to-slices",
+    "version": "0.1.0",
+    "main": "dist/image-to-slices.js",
+    "ignore": [
+        "**/.*",
+        "test",
+        "lib",
+        "example",
+        "LICENSE",
+        ".travis.yml",
+        "bower.json",
+        "package.json",
+        "README*.md",
+        "gulpfile.js"
+    ]
+}
