@@ -132,7 +132,7 @@ The `dataUrlList` returned will be like below:
 ]
 ```
 
-Below is another example which middleBoundaryMode is set to true:
+Below is another example which `middleBoundaryMode` is set to true:
 
 ```js
 ImageToSlices('path/to/image.jpg', [100, 300], [100, 200, 300], {
