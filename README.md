@@ -17,7 +17,7 @@
 npm install image-to-slices
 ```
 
-Using on the server-side Node.js, you'll need previously install [Cairo](http://cairographics.org/) which is depended by (https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
+Using on the server-side Node.js, you'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
 
 ```
 npm install canvas
