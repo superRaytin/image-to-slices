@@ -2,6 +2,7 @@
 var fs = require('fs');
 var Path = require('path');
 var should = require('should');
+var Canvas = require('canvas');
 var ImageToSlices = require('../lib/index');
 var utils = require('../lib/utils');
 
@@ -11,6 +12,12 @@ var deleteTempFile = true;
 
 var lineXArray;
 var lineYArray;
+
+ImageToSlices.configure({
+  clipperOptions: {
+    canvas: require('canvas')
+  }
+});
 
 describe('image-to-slices', function() {
   it('saveToDir works', function(done) {
