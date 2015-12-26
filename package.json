@@ -1,7 +1,7 @@
 {
   "name": "image-to-slices",
   "version": "0.1.0",
-  "description": "Node.js module for converting image into slices by the given reference lines.",
+  "description": "Node.js module for converting image into slices with the given reference lines.",
   "main": "lib/index.js",
   "license": "MIT",
   "bugs": {
