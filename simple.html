@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>image-to-slices example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .hide {
+            display: none;
+        }
+        #container:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .col {
+            display: inline-block;
+            width: 49%;
+            float: left;
+        }
+        pre {
+            background: #eee;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .demo-code {
+
+        }
+        .imageWrapper .item {
+            position: relative;
+            float: left;
+            margin: 5px;
+        }
+        .imageWrapper .item span {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #fff;
+        }
+        .imageWrapper .item span em {
+            font-size: 12px;
+        }
+        .imageWrapper .item img {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<h1>image-to-slices example</h1>
+<div id="container">
+    <div class="col">
+        <h3>
+            <h3>Origin:</h3>
+            <img src="images/building.png" id="source">
+        </h3>
+    </div>
+    <div class="col">
+        <h3>Result:</h3>
+        <div id="result"></div>
+    </div>
+</div>
+<div class="demo-code">
+    <pre>
+var lineXArray = [60, 250];
+var lineYArray = [100, 200];
+var source = './images/building.png';
+
+var imageToSlices = window.imageToSlices;
+imageToSlices(source, lineXArray, lineYArray, {
+    saveToDataUrl: true
+}, function(dataUrlList) {
+    console.log('sliced', dataUrlList);
+});
+    </pre>
+</div>
+
+<script src="../dist/image-to-slices.js"></script>
+<script>
+    function pushDataURI(width, height, list, parent) {
+        parent = parent || document.body;
+
+        var div = document.createElement('div');
+        div.style.width = width + 30 + 'px';
+        div.style.height = height + 'px';
+        div.setAttribute('class', 'imageWrapper');
+
+        parent.appendChild(div);
+
+        list.forEach(function(item, index) {
+            var div2 = document.createElement('div');
+            var text = document.createElement('span');
+
+            div2.setAttribute('class', 'item');
+            text.innerHTML = 'section-' + (index + 1) + '<br><em>('+ item.x +', '+ item.y +', '+ item.width +', '+ item.height +')</em>';
+
+            div2.appendChild(text);
+            div.appendChild(div2);
+            createImage(item.dataURI, div2);
+        });
+    }
+
+    function createImage(dataUrl, parent) {
+        var img = new Image();
+        parent = parent || document.body;
+
+        img.src = dataUrl;
+        parent.appendChild(img);
+    }
+</script>
+<script>
+    var result = document.getElementById('result');
+
+    var lineXArray = [60, 250];
+    var lineYArray = [100, 200];
+    var source = './images/building.png';
+
+    var imageToSlices = window.imageToSlices;
+    imageToSlices(source, lineXArray, lineYArray, {
+        saveToDataUrl: true
+    }, function(dataUrlList) {
+        console.log('sliced', dataUrlList);
+        pushDataURI(300, 300, dataUrlList, result);
+    });
+</script>
+</body>
+</html>
