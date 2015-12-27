@@ -71,7 +71,7 @@ You can also use `image-to-slices` via AMD or CMD.
 
 # Example
 
-Online example: [https://github.com/superRaytin/image-to-slices/](https://github.com/superRaytin/image-to-slices/)
+Online example: [http://leonshi.com/image-to-slices/](http://leonshi.com/image-to-slices/)
 
 # API
 
