@@ -3,6 +3,7 @@ npm-debug.log
 node_modules/
 
 dist/
+build/
 example/
 test/
 gulpfile.js
