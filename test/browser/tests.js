@@ -1,7 +1,7 @@
 
 var imageToSlices = window.imageToSlices;
 
-var pngImagePath = '../../example/building.png';
+var pngImagePath = '../../example/images/building.png';
 var exportDir = '../../example/';
 var pushToBody = true;
 

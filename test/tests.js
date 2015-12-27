@@ -6,7 +6,7 @@ var Canvas = require('canvas');
 var ImageToSlices = require('../lib/index');
 var utils = require('../lib/utils');
 
-var pngImagePath = './example/building.png';
+var pngImagePath = './example/images/building.png';
 var exportDir = './example/';
 var deleteTempFile = true;
 
