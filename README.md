@@ -22,7 +22,7 @@
 npm install image-to-slices
 ```
 
-you'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
+You'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
 
 ```
 npm install canvas
@@ -59,6 +59,7 @@ Simply download the latest minified version from the `dist/` folder. All APIs ar
 ```
 
 ```js
+var imageToSlices = window.imageToSlices;
 imageToSlices(source, lineXArray, lineYArray, {
     saveToDataUrl: true
 }, function(dataUrlList) {
@@ -68,7 +69,15 @@ imageToSlices(source, lineXArray, lineYArray, {
 
 You can also use `image-to-slices` via AMD or CMD.
 
+# Example
+
+Online example: [https://github.com/superRaytin/image-to-slices/](https://github.com/superRaytin/image-to-slices/)
+
 # API
+
+```js
+var imageToSlices = require('image-to-slices');
+```
 
 ### imageToSlices(source, lineXArray, lineYArray [, options], callback)
 
