@@ -1,10 +1,10 @@
 # image-to-slices
 > Node.js module for converting image into slices with the given reference lines. Backed by [Slices](https://github.com/superRaytin/slices) and [image-clipper](https://github.com/superRaytin/image-clipper).
 
-[![Build Status](https://travis-ci.org/superRaytin/image-to-slices.svg?branch=master)](https://travis-ci.org/superRaytin/image-to-slices)
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
 [![Bower version][bower-image]][bower-url]
+[![Build Status](https://travis-ci.org/superRaytin/image-to-slices.svg?branch=master)](https://travis-ci.org/superRaytin/image-to-slices)
 
 [![image-to-slices](https://nodei.co/npm/image-to-slices.png)](https://npmjs.org/package/image-to-slices)
 
