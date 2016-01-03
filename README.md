@@ -1,3 +1,5 @@
+<img src="example/images/demonstrate.png" width="880">
+
 # image-to-slices
 > Node.js module for converting image into slices with the given reference lines. Backed by [Slices](https://github.com/superRaytin/slices) and [image-clipper](https://github.com/superRaytin/image-clipper).
 
@@ -47,6 +49,12 @@ imageToSlices(source, lineXArray, lineYArray, {
     saveToDir: '/path/to/'
 }, function() {
     console.log('the source image has been sliced into 9 sections!');
+});
+
+imageToSlices('/path/to/image.jpg', [x1, x2], [y1, y2], {
+    saveToDir: '/path/to/'
+}, function() {
+    console.log('done!');
 });
 ```
 
