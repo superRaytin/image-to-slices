@@ -1,14 +1,12 @@
 ﻿var path = require('path');
 var fs = require('fs');
 var gulp = require('gulp');
-var through2 = require("through2");
 var uglify = require('gulp-uglify');
 var browserify = require('gulp-browserify');
 var rename = require("gulp-rename");
 var ignore = require("gulp-ignore");
 var banner = require("gulp-banner");
-var marked = require("gulp-marked");
-var lodashTemplate = require("lodash.template");
+var githubStylePage = require('gulp-github-style-page');
 var shelljs = require('shelljs');
 var ghPages = require("gh-pages");
 var pkg = require('./package.json');
@@ -61,28 +59,12 @@ gulp.task('copy-example', function() {
 
 gulp.task('readme', function() {
     gulp.src('./README.md')
-        .pipe(marked({
-
-        }))
-        .pipe(through2.obj(function(file, encoding, next) {
-            var that = this;
-            var content = file.contents.toString(encoding);
-
-            fs.readFile('./example/template.html', function(err, data) {
-                if (err) throw err;
-                var parseData = data.toString();
-                var temp = lodashTemplate(parseData);
-
-                content = temp({
-                    pkg: pkg,
-                    examples: getHtmlFile('./build/example'),
-                    body: content
-                });
-
-                file.contents = new Buffer(content, encoding);
-                that.push(file);
-                next();
-            });
+        .pipe(githubStylePage({
+            template: 'project',
+            vars: {
+                pkg: pkg,
+                examples: getHtmlFile('./build/example')
+            }
         }))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('build'));
@@ -122,8 +104,6 @@ gulp.task('example-browserify', function() {
 
 gulp.task('gh-pages', ['before-gh-pages'], function(done) {
     console.log('gh-pages start');
-    console.log(cwd);
-
     if (fs.existsSync(path.join(cwd, './example/'))) {
         ghPages.publish(path.join(cwd, 'build'), {
             logger: function(message) {
