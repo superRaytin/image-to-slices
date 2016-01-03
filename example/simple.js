@@ -1,7 +1,6 @@
 'use strict';
 
 var imageToSlices = require('../lib/index');
-//var imageToSlices = require('image-to-slices');
 
 var lineXArray = [60, 250];
 var lineYArray = [100, 200];
