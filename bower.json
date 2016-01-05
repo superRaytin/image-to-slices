@@ -1,6 +1,6 @@
 {
     "name": "image-to-slices",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "dist/image-to-slices.js",
     "ignore": [
         "**/.*",
