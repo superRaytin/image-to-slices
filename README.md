@@ -1,4 +1,6 @@
-<img src="example/images/demonstrate.png" width="880">
+<p style="text-align: center">
+    <img src="example/images/demonstrate.png" width="880" alt="image-to-slices">
+</p>
 
 # image-to-slices
 > Node.js module for converting image into slices with the given reference lines. Backed by [Slices](https://github.com/superRaytin/slices) and [image-clipper](https://github.com/superRaytin/image-clipper).
