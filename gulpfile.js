@@ -53,7 +53,6 @@ gulp.task('before-gh-pages', function() {
 gulp.task('copy-example', function() {
     gulp.src('example/**/*')
         .pipe(ignore.exclude('*.js'))
-        .pipe(ignore.exclude('template.html'))
         .pipe(gulp.dest('build/example'));
 });
 
