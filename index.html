@@ -614,7 +614,7 @@
 </head>
 <body>
 <div class="header">
-    <h1>image-to-slices@0.1.1</h1>
+    <h1>image-to-slices@0.1.2</h1>
 </div>
 
 <div class="examples">
@@ -631,7 +631,10 @@
 <div id="readme" class="boxed-group">
     <h3>README.md</h3>
     <div class="markdown-body">
-        <p><img src="example/images/demonstrate.png" width="880"></p>
+        <p style="text-align: center">
+    <img src="example/images/demonstrate.png" width="880" alt="image-to-slices">
+</p>
+
 <h1 id="image-to-slices">image-to-slices</h1>
 <blockquote>
 <p>Node.js module for converting image into slices with the given reference lines. Backed by <a href="https://github.com/superRaytin/slices">Slices</a> and <a href="https://github.com/superRaytin/image-clipper">image-clipper</a>.</p>
@@ -644,7 +647,9 @@
 <h1 id="installation">Installation</h1>
 <h3 id="node-js">Node.js</h3>
 <pre><code>npm install image-to-slices
-</code></pre><p>You&#39;ll need previously install <a href="http://cairographics.org/">Cairo</a> which is depended by <a href="https://github.com/Automattic/node-canvas">node-canvas</a>, see <a href="https://github.com/Automattic/node-canvas#installation">node-canvas#Installation</a> for detail.</p>
+</code></pre><blockquote>
+<p>Since the server-side Node.js doesn&#39;t natively support Canvas, you&#39;ll need previously install <a href="http://cairographics.org/">Cairo</a> which is depended by <a href="https://github.com/Automattic/node-canvas">node-canvas</a>, see <a href="https://github.com/Automattic/node-canvas#installation">node-canvas#Installation</a> for detail.</p>
+</blockquote>
 <pre><code>npm install canvas
 </code></pre><h3 id="bower">Bower</h3>
 <pre><code>bower install image-to-slices
@@ -653,18 +658,12 @@
 
 var lineXArray = [100, 200];
 var lineYArray = [100, 200];
-var source = &#39;/path/to/image.jpg&#39;; // width:300, height:300
+var source = &#39;/path/to/image.jpg&#39;; // width: 300, height: 300
 
 imageToSlices(source, lineXArray, lineYArray, {
     saveToDir: &#39;/path/to/&#39;
 }, function() {
     console.log(&#39;the source image has been sliced into 9 sections!&#39;);
-});
-
-imageToSlices(&#39;/path/to/image.jpg&#39;, [x1, x2], [y1, y2], {
-    saveToDir: &#39;/path/to/&#39;
-}, function() {
-    console.log(&#39;done!&#39;);
 });
 </code></pre>
 <h2 id="client-side-browser-">Client-side (browser)</h2>
@@ -679,6 +678,23 @@ imageToSlices(source, lineXArray, lineYArray, {
 });
 </code></pre>
 <p>You can also use <code>image-to-slices</code> via AMD or CMD.</p>
+<h2 id="command-line-interface">Command Line Interface</h2>
+<pre><code>Usage: image-to-slices [options]
+
+Options:
+
+-h, --help                            output usage information
+-v, --version                         output the version number
+-i, --input &lt;input file&gt;              the path where the input image file
+-x --lineX &lt;x1,x2,...&gt;                reference lines of the X axis
+-y --lineY &lt;y1,y2,...&gt;                reference lines of the Y axis
+-m --middleBoundaryMode &lt;true|false&gt;  enable middle boundary mode. Default is false
+-o --output &lt;output directory&gt;        the directory where the image slices will be saved. Default is the current working directory of the process
+</code></pre><p>Below is an example:</p>
+<pre><code>$ image-to-slices -i ./example/images/building.png -x 20,100 -y 100 -o ./example/
+</code></pre><blockquote>
+<p>Note that the Cli usage require node-canvas.</p>
+</blockquote>
 <h1 id="example">Example</h1>
 <p>Online example: <a href="http://leonshi.com/image-to-slices/">http://leonshi.com/image-to-slices/</a></p>
 <h1 id="api">API</h1>
