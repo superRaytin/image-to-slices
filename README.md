@@ -82,7 +82,7 @@ Options:
 
 -h, --help                            output usage information
 -v, --version                         output the version number
--i, --input <input file>              the path where the input image file
+-s, --source <source file>            the path where the source image file
 -x --lineX <x1,x2,...>                reference lines of the X axis
 -y --lineY <y1,y2,...>                reference lines of the Y axis
 -m --middleBoundaryMode <true|false>  enable middle boundary mode. Default is false
@@ -92,7 +92,7 @@ Options:
 Below is an example:
 
 ```
-$ image-to-slices -i ./example/images/building.png -x 20,100 -y 100 -o ./example/
+$ image-to-slices -s ./example/images/building.png -x 20,100 -y 100 -o ./example/
 ```
 
 > Note that the Cli usage require node-canvas.

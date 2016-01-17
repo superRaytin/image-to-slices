@@ -10,14 +10,14 @@ function list(val) {
 
 program
   .version(pkg.version, '-v, --version')
-  .option('-i, --input <input file>', 'the path where the input image file')
+  .option('-s, --source <source file>', 'the path where the source image file')
   .option('-x --lineX <x1,x2,...>', 'reference lines of the X axis', list, [])
   .option('-y --lineY <y1,y2,...>', 'reference lines of the Y axis', list, [])
   .option('-m --middleBoundaryMode <true|false>', 'enable middle boundary mode. Default is false', false)
   .option('-o --output <output directory>', 'the directory where the image slices will be saved. Default is the current working directory of the process', process.cwd())
   .parse(process.argv);
 
-if (!program.input) {
+if (!program.source) {
   process.exit(0);
 }
 
@@ -27,7 +27,7 @@ imageToSlices.configure({
   }
 });
 
-imageToSlices(program.input, program.lineX, program.lineY, {
+imageToSlices(program.source, program.lineX, program.lineY, {
   saveToDir: program.output
 }, function() {
   console.log('[image-to-slices] Done! the image slices has been saved in', program.output);
