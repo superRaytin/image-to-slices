@@ -26,7 +26,7 @@
 npm install image-to-slices
 ```
 
-You'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
+> Since the server-side Node.js doesn't natively support Canvas, you'll need previously install [Cairo](http://cairographics.org/) which is depended by [node-canvas](https://github.com/Automattic/node-canvas), see [node-canvas#Installation](https://github.com/Automattic/node-canvas#installation) for detail.
 
 ```
 npm install canvas
@@ -45,18 +45,12 @@ var imageToSlices = require('image-to-slices');
 
 var lineXArray = [100, 200];
 var lineYArray = [100, 200];
-var source = '/path/to/image.jpg'; // width:300, height:300
+var source = '/path/to/image.jpg'; // width: 300, height: 300
 
 imageToSlices(source, lineXArray, lineYArray, {
     saveToDir: '/path/to/'
 }, function() {
     console.log('the source image has been sliced into 9 sections!');
-});
-
-imageToSlices('/path/to/image.jpg', [x1, x2], [y1, y2], {
-    saveToDir: '/path/to/'
-}, function() {
-    console.log('done!');
 });
 ```
 
@@ -78,6 +72,30 @@ imageToSlices(source, lineXArray, lineYArray, {
 ```
 
 You can also use `image-to-slices` via AMD or CMD.
+
+## Command Line Interface
+
+```
+Usage: image-to-slices [options]
+
+Options:
+
+-h, --help                            output usage information
+-v, --version                         output the version number
+-i, --input <input file>              the path where the input image file
+-x --lineX <x1,x2,...>                reference lines of the X axis
+-y --lineY <y1,y2,...>                reference lines of the Y axis
+-m --middleBoundaryMode <true|false>  enable middle boundary mode. Default is false
+-o --output <output directory>        the directory where the image slices will be saved. Default is the current working directory of the process
+```
+
+Below is an example:
+
+```
+$ image-to-slices -i ./example/images/building.png -x 20,100 -y 100 -o ./example/
+```
+
+> Note that the Cli usage require node-canvas.
 
 # Example
 
