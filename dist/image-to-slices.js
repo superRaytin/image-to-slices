@@ -1,6 +1,6 @@
 /*
- * image-to-slices 0.1.0
- * Node.js module for converting image into slices with the given reference lines.
+ * image-to-slices 0.1.2
+ * Node.js module for converting image into slices with the given reference lines. Backed by Slices and image-clipper.
  * https://github.com/superRaytin/image-to-slices
  *
  * Copyright 2015, Leon Shi
