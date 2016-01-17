@@ -2,8 +2,7 @@
 var fs = require('fs');
 var Path = require('path');
 var should = require('should');
-var Canvas = require('canvas');
-var ImageToSlices = require('../lib/index');
+var imageToSlices = require('../lib/index');
 var utils = require('../lib/utils');
 
 var pngImagePath = './example/images/building.png';
@@ -13,7 +12,7 @@ var deleteTempFile = true;
 var lineXArray;
 var lineYArray;
 
-ImageToSlices.configure({
+imageToSlices.configure({
   clipperOptions: {
     canvas: require('canvas')
   }
@@ -24,7 +23,7 @@ describe('image-to-slices', function() {
     lineXArray = [100, 200];
     lineYArray = [100, 200];
 
-    ImageToSlices(pngImagePath, lineXArray, lineYArray, {
+    imageToSlices(pngImagePath, lineXArray, lineYArray, {
       saveToDir: exportDir
     }, function() {
       fs.existsSync(exportDir + 'section-1.png').should.equal(true);
@@ -37,7 +36,7 @@ describe('image-to-slices', function() {
     lineXArray = [100, 200];
     lineYArray = [100, 200, 250];
 
-    ImageToSlices(pngImagePath, lineXArray, lineYArray, {
+    imageToSlices(pngImagePath, lineXArray, lineYArray, {
       saveToDir: exportDir,
       middleBoundaryMode: true
     }, function() {
@@ -51,7 +50,7 @@ describe('image-to-slices', function() {
     lineXArray = [100, 200];
     lineYArray = [100, 200, 250];
 
-    ImageToSlices(pngImagePath, lineXArray, lineYArray, {
+    imageToSlices(pngImagePath, lineXArray, lineYArray, {
       saveToDir: exportDir,
       middleBoundaryMode: true,
       clipperOptions: {
@@ -66,7 +65,7 @@ describe('image-to-slices', function() {
 
   it('throws when both save directory and saveToDataUrl does not be specified', function(done) {
     try {
-      ImageToSlices(pngImagePath, lineXArray, lineYArray, {
+      imageToSlices(pngImagePath, lineXArray, lineYArray, {
         saveToDir: null,
         saveToDataUrl: false
       }, function() {
@@ -84,7 +83,7 @@ describe('image-to-slices', function() {
     lineYArray = [];
 
     try {
-      ImageToSlices(pngImagePath, lineXArray, lineYArray, {
+      imageToSlices(pngImagePath, lineXArray, lineYArray, {
         saveToDir: exportDir,
         middleBoundaryMode: true,
         clipperOptions: {
