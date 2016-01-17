@@ -614,7 +614,7 @@
 </head>
 <body>
 <div class="header">
-    <h1>image-to-slices@0.1.2</h1>
+    <h1>image-to-slices@0.1.3</h1>
 </div>
 
 <div class="examples">
@@ -685,13 +685,13 @@ Options:
 
 -h, --help                            output usage information
 -v, --version                         output the version number
--i, --input &lt;input file&gt;              the path where the input image file
+-s, --source &lt;source file&gt;            the path where the source image file
 -x --lineX &lt;x1,x2,...&gt;                reference lines of the X axis
 -y --lineY &lt;y1,y2,...&gt;                reference lines of the Y axis
 -m --middleBoundaryMode &lt;true|false&gt;  enable middle boundary mode. Default is false
 -o --output &lt;output directory&gt;        the directory where the image slices will be saved. Default is the current working directory of the process
 </code></pre><p>Below is an example:</p>
-<pre><code>$ image-to-slices -i ./example/images/building.png -x 20,100 -y 100 -o ./example/
+<pre><code>$ image-to-slices -s ./example/images/building.png -x 20,100 -y 100 -o ./example/
 </code></pre><blockquote>
 <p>Note that the Cli usage require node-canvas.</p>
 </blockquote>

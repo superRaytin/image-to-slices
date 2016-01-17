@@ -1,5 +1,5 @@
 /*
- * image-to-slices@0.1.2 example
+ * image-to-slices@0.1.3 example
  * https://github.com/superRaytin/image-to-slices
  *
  * Copyright 2015, Leon Shi
