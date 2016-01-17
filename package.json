@@ -1,8 +1,11 @@
 {
   "name": "image-to-slices",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Node.js module for converting image into slices with the given reference lines. Backed by Slices and image-clipper.",
   "main": "lib/index.js",
+  "bin": {
+    "image-to-slices": "./bin/image-to-slices"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/superRaytin/image-to-slices/issues"
@@ -25,7 +28,8 @@
   ],
   "dependencies": {
     "image-clipper": "~0.4.2",
-    "slices": "~0.1.2"
+    "slices": "~0.1.2",
+    "commander": "~2.9.0"
   },
   "devDependencies": {
     "should": "~6.0.1",
