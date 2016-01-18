@@ -18,6 +18,7 @@ program
   .parse(process.argv);
 
 if (!program.source) {
+  program.help();
   process.exit(0);
 }
 
