@@ -11,10 +11,10 @@ function list(val) {
 program
   .version(pkg.version, '-v, --version')
   .option('-s, --source <source file>', 'the path where the source image file')
-  .option('-x --lineX <x1,x2,...>', 'reference lines of the X axis', list, [])
-  .option('-y --lineY <y1,y2,...>', 'reference lines of the Y axis', list, [])
-  .option('-m --middleBoundaryMode <true|false>', 'enable middle boundary mode. Default is false', false)
-  .option('-o --output <output directory>', 'the directory where the image slices will be saved. Default is the current working directory of the process', process.cwd())
+  .option('-x, --lineX <x1,x2,...>', 'reference lines of the X axis', list, [])
+  .option('-y, --lineY <y1,y2,...>', 'reference lines of the Y axis', list, [])
+  .option('-m, --middleBoundaryMode <true|false>', 'enable middle boundary mode. Default is false', false)
+  .option('-o, --output <output directory>', 'the directory where the image slices will be saved. Default is the current working directory of the process', process.cwd())
   .parse(process.argv);
 
 if (!program.source) {
