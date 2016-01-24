@@ -683,17 +683,17 @@ imageToSlices(source, lineXArray, lineYArray, {
 
 Options:
 
--h, --help                            output usage information
--v, --version                         output the version number
--s, --source &lt;source file&gt;            the path where the source image file
--x --lineX &lt;x1,x2,...&gt;                reference lines of the X axis
--y --lineY &lt;y1,y2,...&gt;                reference lines of the Y axis
--m --middleBoundaryMode &lt;true|false&gt;  enable middle boundary mode. Default is false
--o --output &lt;output directory&gt;        the directory where the image slices will be saved. Default is the current working directory of the process
+-h, --help                             output usage information
+-v, --version                          output the version number
+-s, --source &lt;source file&gt;             the path where the source image file
+-x, --lineX &lt;x1,x2,...&gt;                reference lines of the X axis
+-y, --lineY &lt;y1,y2,...&gt;                reference lines of the Y axis
+-m, --middleBoundaryMode &lt;true|false&gt;  enable middle boundary mode. Default is false
+-o, --output &lt;output directory&gt;        the directory where the image slices will be saved. Default is the current working directory of the process
 </code></pre><p>Below is an example:</p>
 <pre><code>$ image-to-slices -s ./example/images/building.png -x 20,100 -y 100 -o ./example/
 </code></pre><blockquote>
-<p>Note that the Cli usage require node-canvas.</p>
+<p>Note that the CLI usage require node-canvas.</p>
 </blockquote>
 <h1 id="example">Example</h1>
 <p>Online example: <a href="http://leonshi.com/image-to-slices/">http://leonshi.com/image-to-slices/</a></p>
