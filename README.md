@@ -80,13 +80,13 @@ Usage: image-to-slices [options]
 
 Options:
 
--h, --help                            output usage information
--v, --version                         output the version number
--s, --source <source file>            the path where the source image file
--x --lineX <x1,x2,...>                reference lines of the X axis
--y --lineY <y1,y2,...>                reference lines of the Y axis
--m --middleBoundaryMode <true|false>  enable middle boundary mode. Default is false
--o --output <output directory>        the directory where the image slices will be saved. Default is the current working directory of the process
+-h, --help                             output usage information
+-v, --version                          output the version number
+-s, --source <source file>             the path where the source image file
+-x, --lineX <x1,x2,...>                reference lines of the X axis
+-y, --lineY <y1,y2,...>                reference lines of the Y axis
+-m, --middleBoundaryMode <true|false>  enable middle boundary mode. Default is false
+-o, --output <output directory>        the directory where the image slices will be saved. Default is the current working directory of the process
 ```
 
 Below is an example:
