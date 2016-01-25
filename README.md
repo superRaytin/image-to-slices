@@ -95,7 +95,7 @@ Below is an example:
 $ image-to-slices -s ./example/images/building.png -x 20,100 -y 100 -o ./example/
 ```
 
-> Note that the Cli usage require node-canvas.
+> Note that the CLI usage require node-canvas.
 
 # Example
 
