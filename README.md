@@ -99,7 +99,7 @@ $ image-to-slices -s ./example/images/building.png -x 20,100 -y 100 -o ./example
 
 # Example
 
-Online example: [http://leonshi.com/image-to-slices/](http://leonshi.com/image-to-slices/)
+Online example: [http://superraytin.github.io/image-to-slices/](http://superraytin.github.io/image-to-slices/)
 
 # API
 
